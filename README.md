@@ -1,6 +1,7 @@
-
 # Demo
-Open [https://personal-portfolio-bxd.pages.dev/](https://personal-portfolio-bxd.pages.dev/) to view project.
+
+Open [https://social-bvn.pages.dev/](https://social-bvn.pages.dev/) to view project.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
