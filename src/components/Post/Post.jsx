@@ -1,6 +1,6 @@
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import heart from "../../assets/heart.png";
 import likepng from "../../assets/like.png";
 import style from "./style.module.css";
@@ -14,6 +14,14 @@ export default function Post({
   like,
   comment,
 }) {
+  const [liked, setLiked] = useState(like);
+  const [isLike, setisLike] = useState(false);
+
+  const likeHandler = () => {
+    isLike ? setLiked((prev) => prev - 1) : setLiked((prev) => prev + 1);
+    setisLike((prev) => !prev);
+  };
+
   return (
     <>
       <div className={style.post}>
@@ -34,11 +42,21 @@ export default function Post({
           </div>
           <div className={style.bottom}>
             <div className={style.postBottomLeft}>
-              <img className={style.likeIcon} src={heart} alt="" />
-              <img className={style.likeIcon} src={likepng} alt="" />
+              <img
+                className={style.likeIcon}
+                src={heart}
+                alt=""
+                onClick={likeHandler}
+              />
+              <img
+                className={style.likeIcon}
+                src={likepng}
+                alt=""
+                onClick={likeHandler}
+              />
               <span className={style.postLikeCounter}>
                 {" "}
-                {like} people like it
+                {liked} people like it
               </span>
             </div>
             <div className={style.postBottomRight}>
