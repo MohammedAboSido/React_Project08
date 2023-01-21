@@ -1,10 +1,11 @@
 import React from "react";
-import HomePage from "../pages/HomePage/HomePage";
+import ProfilePage from "../pages/ProgfilePage/ProfilePage";
 
 export default function Home() {
   return (
     <>
-      <HomePage />
+      {/* <HomePage /> */}
+      <ProfilePage />
     </>
   );
 }
