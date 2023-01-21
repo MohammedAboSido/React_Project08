@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "../Post/Post";
 import Share from "../Share/Share";
+import { Posts } from "./Data";
 import style from "./style.module.css";
 export default function Feed() {
   return (
@@ -8,7 +9,18 @@ export default function Feed() {
       <div className={style.feed}>
         <div className={style.wrapper}>
           <Share />
-          <Post />
+          {Posts.map((item) => (
+            <Post
+              comment={item.comment}
+              date={item.date}
+              desc={item.desc}
+              like={item.like}
+              photo={item.photo}
+              profilePicture={item.profilePicture}
+              username={item.username}
+              key={item.id}
+            />
+          ))}
         </div>
       </div>
     </>

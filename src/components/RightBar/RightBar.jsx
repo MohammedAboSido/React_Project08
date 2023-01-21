@@ -1,7 +1,8 @@
 import React from "react";
 import ad from "../../assets/ad.png";
 import gift from "../../assets/gift.png";
-import person from "../../assets/person/3.jpeg";
+import { Users } from "./Data";
+import Friend from "./Friend";
 import style from "./style.module.css";
 export default function RightBar() {
   return (
@@ -19,34 +20,13 @@ export default function RightBar() {
           <img className={style.rightBarAd} src={ad} alt="ad" />
           <h4 className={style.rightBarTitle}>Online Friends</h4>
           <ul className={style.friendsList}>
-            <li className={style.friend}>
-              <div className={style.profileImgContainer}>
-                <img className={style.profileImg} src={person} alt="person" />
-                <span className={style.online}></span>
-              </div>
-              <span className={style.userName}>John Carter</span>
-            </li>
-            <li className={style.friend}>
-              <div className={style.profileImgContainer}>
-                <img className={style.profileImg} src={person} alt="person" />
-                <span className={style.online}></span>
-              </div>
-              <span className={style.userName}>John Carter</span>
-            </li>
-            <li className={style.friend}>
-              <div className={style.profileImgContainer}>
-                <img className={style.profileImg} src={person} alt="person" />
-                <span className={style.online}></span>
-              </div>
-              <span className={style.userName}>John Carter</span>
-            </li>
-            <li className={style.friend}>
-              <div className={style.profileImgContainer}>
-                <img className={style.profileImg} src={person} alt="person" />
-                <span className={style.online}></span>
-              </div>
-              <span className={style.userName}>John Carter</span>
-            </li>
+            {Users.map((item) => (
+              <Friend
+                profilePicture={item.profilePicture}
+                username={item.username}
+                key={item.id}
+              />
+            ))}
           </ul>
         </div>
       </div>

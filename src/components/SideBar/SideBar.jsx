@@ -11,10 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import friend1 from "../../assets/person/2.jpeg";
-import friend2 from "../../assets/person/3.jpeg";
-import friend3 from "../../assets/person/4.jpeg";
-import friend4 from "../../assets/person/5.jpeg";
+import CloseFriend from "./CloseFriend";
+import { Users } from "./Data";
 import style from "./style.module.css";
 export default function SideBar() {
   return (
@@ -62,22 +60,13 @@ export default function SideBar() {
           <button className={style.button}>Show More</button>
           <hr className={style.sideBarHr} />
           <ul className={style.friendList}>
-            <li className={style.friend}>
-              <img src={friend1} alt="" className={style.friendImg} />
-              <span className={style.friendName}>Jane Doe</span>
-            </li>
-            <li className={style.friend}>
-              <img src={friend2} alt="" className={style.friendImg} />
-              <span className={style.friendName}>Jane Doe</span>
-            </li>
-            <li className={style.friend}>
-              <img src={friend3} alt="" className={style.friendImg} />
-              <span className={style.friendName}>Jane Doe</span>
-            </li>
-            <li className={style.friend}>
-              <img src={friend4} alt="" className={style.friendImg} />
-              <span className={style.friendName}>Jane Doe</span>
-            </li>
+            {Users.map((item) => (
+              <CloseFriend
+                profilePicture={item.profilePicture}
+                username={item.username}
+                key={item.id}
+              />
+            ))}
           </ul>
         </div>
       </div>
